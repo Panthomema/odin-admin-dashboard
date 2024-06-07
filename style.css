@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+
 @layer reset {
   *,
   *::before,
@@ -5,10 +7,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  html {
-    font-size: 16px;
   }
 
   body {
@@ -31,7 +29,8 @@
 
   fieldset,
   button {
-    border: none;
+    border: unset;
+    background: unset;
   }
 
   :focus {
@@ -63,10 +62,17 @@
   }
 }
 
-/* Variables */
+/* Variables & General */
+
+html {
+  font-size: clamp(12px, calc(9px + 0.5vw), 24px);
+}
 
 :root {
   --color-blue: #1992D4;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-grey: #e2e8f0;
 }
 
 /* Layout */
@@ -112,26 +118,67 @@ h1 a {
 
 header {
   grid-area: header;
-  background: lightgray;
-  height: 200px;
+  display: grid;
+  gap: 1em;
+  grid-template-rows: 1fr 2fr;
+  padding: 1em 2.5em;
+}
+
+header nav {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-items: center;
+  gap: 3em;
+}
+
+header nav > * {
+  display: grid;
+  gap: 1em;
+  align-items: center;
+}
+
+header nav form {
+  grid-template-columns: max-content 1fr;
+  gap: 0.75em;
+}
+
+header input {
+  max-width: 600px;
+  height: 1.5em;
+}
+
+header nav div {
+  grid-auto-flow: column;
+}
+
+#profile-widget {
+  gap: 1.5em;
+}
+
+#greeting-widget {
+  justify-content: start;
 }
 
 main {
   grid-area: main;
-  background: white;
 }
 
 /* Aesthetics */
 
 #wrapper {
-  font-family: sans-serif;
+  font-family: Roboto, sans-serif;
+}
+
+img {
+  border-radius: 50%;
+  height: 2em;
 }
 
 aside {
-  --color-white: #fff;
   background-color: var(--color-blue);
   color: var(--color-white);
-  font-size: clamp(1rem, calc(0.75rem + 0.5vw), 2rem);
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 aside svg {
@@ -149,6 +196,61 @@ h1 svg {
   height: 2em;
 }
 
-aside ul {
-  font-weight: bold;
+header {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-size: 1.05rem;
+}
+
+header button {
+  cursor: pointer;
+}
+
+header svg {
+  fill: var(--color-black);
+  width: 1.1em;
+  height: 1.1em;
+}
+
+header input {
+  border: none;
+  background-color: var(--color-grey);
+  border-radius: 50px;
+  padding: 0.2em 0.7em;
+  font-weight: 400;
+}
+
+#profile-widget {
+  padding-right: 0.75em;
+}
+
+#profile-widget > * {
+  cursor: pointer;
+}
+
+#profile-widget p {
+  font-weight: 700;
+  font-size: 0.8em;
+}
+
+#greeting-widget img {
+  height: 3em;
+  width: max-content;
+}
+
+.small {
+  font-size: 0.6em;
+}
+
+#project-control-widget button {
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  font-size: 0.9em;
+  font-weight: 700;
+  padding: 0.5em 1.5em;
+  border-radius: 50px;
+}
+
+main {
+  background-color: var(--color-grey);
 }
