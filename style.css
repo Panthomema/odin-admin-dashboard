@@ -73,13 +73,25 @@ html {
   --color-white: #fff;
   --color-black: #000;
   --color-grey: #e2e8f0;
+  --color-dark-grey: #555;
 }
 
-/* Layout */
+/* General */
 
 body {
   display: grid;
 }
+
+img {
+  border-radius: 50%;
+  height: 2.5em;
+}
+
+h1 {
+  font-size: 1.25em;
+}
+
+/* Wrapper */
 
 #wrapper {
   width: 100%;
@@ -90,7 +102,10 @@ body {
   grid-template-areas: 
     "aside header"
     "aside main";
+  font-family: Roboto, sans-serif;
 }
+
+/* Aside */
 
 aside {
   grid-area: aside;
@@ -98,6 +113,10 @@ aside {
   align-content: start;
   gap: 3.5rem;
   padding: 1em 4em 1em 1em;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  font-size: 1.15rem;
+  font-weight: 500;
 }
 
 aside ul {
@@ -112,9 +131,22 @@ aside a {
   gap: 1em;
 }
 
+aside svg {
+  fill: var(--color-white);
+  width: 1em;
+  height: 1em;
+}
+
+h1 svg {
+  width: 2em;
+  height: 2em;
+}
+
 h1 a {
   gap: 0.5em;
 }
+
+/* Header */
 
 header {
   grid-area: header;
@@ -122,6 +154,9 @@ header {
   gap: 1em;
   grid-template-rows: 1fr 2fr;
   padding: 1em 2.5em;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-size: 1.05rem;
 }
 
 header nav {
@@ -145,61 +180,11 @@ header nav form {
 header input {
   max-width: 600px;
   height: 1.5em;
-}
-
-header nav div {
-  grid-auto-flow: column;
-}
-
-#profile-widget {
-  gap: 1.5em;
-}
-
-#greeting-widget {
-  justify-content: start;
-}
-
-main {
-  grid-area: main;
-}
-
-/* Aesthetics */
-
-#wrapper {
-  font-family: Roboto, sans-serif;
-}
-
-img {
-  border-radius: 50%;
-  height: 2em;
-}
-
-aside {
-  background-color: var(--color-blue);
-  color: var(--color-white);
-  font-size: 1.15rem;
-  font-weight: 500;
-}
-
-aside svg {
-  fill: var(--color-white);
-  width: 1em;
-  height: 1em;
-}
-
-h1 {
-  font-size: 1.25em;
-}
-
-h1 svg {
-  width: 2em;
-  height: 2em;
-}
-
-header {
-  background-color: var(--color-white);
-  color: var(--color-black);
-  font-size: 1.05rem;
+  border: none;
+  background-color: var(--color-grey);
+  border-radius: 50px;
+  padding: 0.2em 0.7em;
+  font-weight: 400;
 }
 
 header button {
@@ -212,15 +197,12 @@ header svg {
   height: 1.1em;
 }
 
-header input {
-  border: none;
-  background-color: var(--color-grey);
-  border-radius: 50px;
-  padding: 0.2em 0.7em;
-  font-weight: 400;
+header nav div {
+  grid-auto-flow: column;
 }
 
 #profile-widget {
+  gap: 1.5em;
   padding-right: 0.75em;
 }
 
@@ -231,6 +213,10 @@ header input {
 #profile-widget p {
   font-weight: 700;
   font-size: 0.8em;
+}
+
+#greeting-widget {
+  justify-content: start;
 }
 
 #greeting-widget img {
@@ -251,6 +237,98 @@ header input {
   border-radius: 50px;
 }
 
+/* Main */
+
 main {
+  padding: 1.75em 1.5em;
+  grid-area: main;
+  display: grid;
+  gap: 1.5em;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: max-content 1fr;
   background-color: var(--color-grey);
+  font-size: 1rem;
 }
+
+main h2 {
+  font-size: 1.15em;
+  font-weight: 500;
+  margin-bottom: 0.75em;
+}
+
+main p {
+  color: var(--color-dark-grey);
+}
+
+#projects {
+  grid-row: span 2;
+}
+
+#projects-container {
+  display: grid;
+  gap: 1.25em;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  border-radius: 0.5em;
+  background-color: var(--color-white);
+}
+
+.project-card {
+  height: 250px;
+  background-color: var(--color-white);
+}
+
+.announcements-card {
+  padding: 3em;
+  display: grid;
+  gap: 1em;
+  font-size: 0.7em;
+}
+
+.announcements-card h3 {
+  font-size: 1.15em;
+  margin-bottom: 0.3em;
+  font-weight: 600;
+}
+
+.announcements-card p {
+  max-inline-size: 30ch;
+  font-weight: 400;
+}
+
+.announcements-card hr {
+  border: none;
+  border-top: 0.15em solid var(--color-grey);
+}
+
+.trending-card {
+  display: grid;
+  font-size: 0.8em;
+  gap: 2em;
+  padding: 2em;
+}
+
+.trending-card div {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 0.7em;
+}
+
+.trending-card img {
+  height: 3.5em;
+}
+
+.trending-card p {
+  display: grid;
+  gap: 0.2em;
+}
+
+.trending-card span {
+  color: var(--color-black);
+}
+
+
+
