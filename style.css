@@ -74,6 +74,7 @@ html {
   --color-black: #000;
   --color-grey: #e2e8f0;
   --color-dark-grey: #555;
+  --color-orange: #f0b429;
 }
 
 /* General */
@@ -90,6 +91,8 @@ img {
 h1 {
   font-size: 1.25em;
 }
+
+
 
 /* Wrapper */
 
@@ -157,6 +160,8 @@ header {
   background-color: var(--color-white);
   color: var(--color-black);
   font-size: 1.05rem;
+  box-shadow: 0em 0.1em 0.35em 0em #aaaaaabf;
+  z-index: 99999;
 }
 
 header nav {
@@ -267,17 +272,61 @@ main p {
 #projects-container {
   display: grid;
   gap: 1.25em;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-auto-rows: 1fr;
 }
 
 .card {
   border-radius: 0.5em;
   background-color: var(--color-white);
+  box-shadow: 0.1em 0.2em 0.35em 0em #aaaaaabf;
+}
+
+.card * {
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: 1.15em;
+  margin-bottom: 0.3em;
+  font-weight: 600;
 }
 
 .project-card {
-  height: 250px;
-  background-color: var(--color-white);
+  position: relative;
+  font-size: 0.9em;
+  padding: 2.5em;
+  display: grid;
+  gap: 1em;
+  grid-template-rows: 1fr max-content;
+}
+
+.project-card p {
+  max-inline-size: 40ch;
+}
+
+.project-card svg {
+  width: 1.75em;
+  height: 1.75em;
+  fill: var(--color-black);
+}
+
+.project-card::before {
+  content: '';
+  height: 100%;
+  width: 0.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0.5em 0 0 0.5em;
+  background-color: var(--color-orange);
+}
+
+.project-card .icons {
+  justify-self: end;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 2em;
 }
 
 .announcements-card {
@@ -285,12 +334,6 @@ main p {
   display: grid;
   gap: 1em;
   font-size: 0.7em;
-}
-
-.announcements-card h3 {
-  font-size: 1.15em;
-  margin-bottom: 0.3em;
-  font-weight: 600;
 }
 
 .announcements-card p {
