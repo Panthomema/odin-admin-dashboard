@@ -7,19 +7,20 @@
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script src="script.js"></script>
 </head>
 <body>
   <div id="wrapper" class="grid-container">
-    <aside class="grid-container">
+    <aside class="grid-container dropdown-parent-hidden">
       <h1>
-        <a href="#" class="grid-container">
+        <a href="#" class="grid-container dropdown-toggler">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
             <path d="M520-600v-240h320v240H520ZM120-440v-400h320v400H120Zm400 320v-400h320v400H520Zm-400 0v-240h320v240H120Z"/>
           </svg>
           Dashboard
         </a>
       </h1>
-      <nav>
+      <nav class="dropdown-hidden">
         <ul class="grid-container">
           <li>
             <a href="#" class="grid-container">
@@ -94,7 +95,7 @@
           </li>
         </ul>
       </nav>
-      <nav>
+      <nav class="dropdown-hidden">
         <ul class="grid-container">
           <li>
             <a href="#" class="grid-container">
