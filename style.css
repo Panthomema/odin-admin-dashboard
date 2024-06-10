@@ -218,6 +218,7 @@ header nav form {
 
 header input {
   max-width: 600px;
+  min-width: 125px;
   height: 1.5em;
   border: none;
   background-color: var(--color-grey);
@@ -418,6 +419,10 @@ main p {
 
   .non-mobile-ui {
     display: none;
+  }
+
+  header {
+    padding: 1em;
   }
 
   main {
